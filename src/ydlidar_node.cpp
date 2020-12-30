@@ -44,7 +44,7 @@ int main(int argc, char * argv[]) {
     std::string port;
     int baudrate=230400;
     std::string frame_id;
-    bool reversion, resolution_fixed;
+    bool reversion, resolution_fixed, inverted;
     bool auto_reconnect;
     double angle_max,angle_min;
     result_t op_result;
@@ -66,6 +66,7 @@ int main(int argc, char * argv[]) {
     nh_private.param<bool>("resolution_fixed", resolution_fixed, "true");
     nh_private.param<bool>("auto_reconnect", auto_reconnect, "true");
     nh_private.param<bool>("reversion", reversion, "true");
+    nh_private.param<bool>("inverted", inverted, "false");
     nh_private.param<double>("angle_max", angle_max , 180);
     nh_private.param<double>("angle_min", angle_min , -180);
     nh_private.param<double>("range_max", max_range , 64.0);
@@ -109,6 +110,7 @@ int main(int argc, char * argv[]) {
     laser.setMaxAngle(angle_max);
     laser.setMinAngle(angle_min);
     laser.setReversion(reversion);
+    laser.setInverted(inverted);
     laser.setFixedResolution(resolution_fixed);
     laser.setAutoReconnect(auto_reconnect);
     laser.setScanFrequency(frequency);
