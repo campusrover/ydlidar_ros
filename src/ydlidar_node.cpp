@@ -111,7 +111,7 @@ int main(int argc, char * argv[]) {
     laser.setMinAngle(angle_min);
     laser.setReversion(reversion);
     laser.setInverted(inverted);
-    ROS_INFO("Inverted:", inverted);
+    ROS_INFO("Inverted**** %s", inverted);
     laser.setFixedResolution(resolution_fixed);
     laser.setAutoReconnect(auto_reconnect);
     laser.setScanFrequency(frequency);
