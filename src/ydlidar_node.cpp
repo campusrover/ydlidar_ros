@@ -44,7 +44,7 @@ int main(int argc, char * argv[]) {
     std::string port;
     int baudrate=230400;
     std::string frame_id;
-    bool reversion, resolution_fixed, inverted;
+    bool reversion, resolution_fixed;
     bool auto_reconnect;
     double angle_max,angle_min;
     result_t op_result;
@@ -111,12 +111,12 @@ int main(int argc, char * argv[]) {
     laser.setMinAngle(angle_min);
     laser.setReversion(reversion);
     laser.setInverted(inverted);
+    ROS_INFO("Inverted:", inverted);
     laser.setFixedResolution(resolution_fixed);
     laser.setAutoReconnect(auto_reconnect);
     laser.setScanFrequency(frequency);
     laser.setIgnoreArray(ignore_array);
     laser.setSampleRate(samp_rate);
-    laser.setInverted(inverted);
     laser.setSingleChannel(isSingleChannel);
     laser.setLidarType(isTOFLidar ? TYPE_TOF : TYPE_TRIANGLE);
     bool ret = laser.initialize();
